@@ -1,0 +1,147 @@
+I used the official solution for part 1.
+
+With the switchOnline command, I change the value of the online variable by
+setting it to false, initially being true for all users.
+I then print a success message if the user's status has changed.
+I iterate through all the users and if I find one that should be online,
+I add it to my list of online users.
+In the addUser method, I iterate through the list of users and if I find
+another one with the same name, I return a message indicating this.
+If the user does not already exist, I add it to the list of requests.
+If the user is an artist or host, I add him to the respective list,
+then return a success message.
+In the addAlbum method verify if the user exists and if not return a message.
+Also verify  if the user is an artist or not , and if it's not an
+artist return a message which indicates this.
+Checks if the artist already has an album with the same name. If yes,
+it returns an error message.Checks for duplicate songs within the albumSongs
+list. If it finds any duplicate song names, it returns an error message.
+Creates a list of Song objects (songs2) for the new album, ensuring that
+duplicate songs are not added to the global list of songs (songs).
+Adds the new album to the global list of albums (Admin.albums) and the list of
+albums for the artist.If all checks pass and the album is added successfully,
+it returns a success message.In this method ensures that a new album
+is added for a given artist, performing various checks to prevent duplication
+of albums and songs. It also adds the album to the global list and the artist's
+list, and returns a success message if the operation is successful.
+Method called showAlbums returns a List of Pair objects, where each Pair
+consists of a String (album name) and a List of String (songs in the album).
+It takes a String parameter username representing the user for whom to retrieve
+albums.Creates an empty list (result) to store pairs of album names and lists
+of songs. Iterate through each album and for each album , create an empty list
+to store the names of songs in that album . Then check if the owner matches
+iterate the song list and check if the current song belongs to the current
+album . If yes , adds the name of the song to the list of songs for the current
+album . After iterating through all songs for the current album, adds a Pair to
+the result list, containing the album name and the list of songs. Return after,
+the list of album-song pairs. The method is similar to showAlbum, only that I
+display the list of podcasts and not albums.Iterate in the list of podcasts.
+For each podcast , create an emty list to store the name of episodes in that
+podcast. Check if the owner of the current podcast matches with username .
+If yes , iterate in list of episode and add the name of each episode to the
+list of episodes for the current podcast .=After iterating through all episodes
+for the current podcast, it adds a Pair to the result list, containing the
+podcast name and the list of episode names. Then , return the list of
+podcast-episode pair.
+In the method called printCurrentPage check the current page and generate the
+appropriate message based on the page type. The message is stored in rezPrint.
+In the method getLikedSongs used a loop to iterate through each user and verify
+if the username of the current user matches with a specified username .
+Then iterate through each liked song in the user's list of liked songs .
+Add the name of the liked song to the result string . If the needsArtist flas
+is true , adds the artist information to the result string . Breaks the loop
+after processing the liked songs for the specified user . After , returns the
+final string containing the list of liked songs for the user .
+Method getFollowedPlaylist it's similar to getLikedSongs . Used a loop to
+iterate through each user and check if the username of the current user matches
+the specified username . After iterate through each followed playlist in the
+users's list of the followed playlist . Add the name of the followed playlist
+to the resu;t string . If the needsArtist flag is true add the owner
+information to the result string . Break the loop after processing the followed
+playlist for the specified user . Return the final string containing the list
+of the followed playlists for the user . In the method getPodcast iterate
+through each podcast and check if the owner of the current podcast matches the
+username . Add the name of the podcast to the result string and start a new
+list for episodes . After, iterate through each episode and add the name and
+description of each episode to the result string . Start a new section for
+announcements . Iterate through each announcement and add the name and
+description of each announcement to the result string . In the end return the
+final string containing information about podcast and announcements for the
+specified user .In method getArtistPage the loop iterate through each artist
+and check if the name of the current artist matches the username . After
+,iterate through each album and add the name of the album to the result string.
+Break the loop after proccessing the artist's albums . Then , iterate through
+artist list and check if the name of the current artist matches the username .
+After , iterate through each merchandise and add the name , price , and
+description of each merchandise item to the result string . Iterate through
+each artist and check if the name of the current artist matches with username .
+Iterate in the event list to add the name , and description of each event to
+the result string . The method addMerch it used to add a merch for each artist.
+Verify if the artist exist and if the user with the specified username is an
+artist, if not return an error message . Check existing merchendise with the
+same name . Iterate through the artist's existing merchandise and check if
+there is already an item with the same name . If found , return an
+error message. Check if the price for the new merchandise is positive.
+If not , return an error message . Create a new merchandise object and add it
+to the artist's list of merchandise . Return a success message indicating that
+the new merchandise has been added successfully . In the addEvent method check
+if the user with the specified username exists, if not return an error message.
+After , check user type . terate through the artist's existing events and
+check if there is already an event with the same name. If found, return an
+error message.Verify if the date is valid by checking its length .
+If not, return an error message.
+Create a new Event object with the provided details and add it to the artist's
+list of events.Return a success message indicating that the new event has been
+added successfully. In method getAllUsers iterate through the users and add
+username of type " user" to the list . Method addPodcast is used to add a
+podcast in the list. Check if the user with the specified username exists.
+If not, return an error message. Verify if the user is in the list of hosts.
+If not, return an error message.Iterate through existing podcasts and check if
+the user already has a podcast with the same name. If found, return an error
+message.Iterate through the provided episodes and check if the user has the
+same episode in this podcast. If found, return an error message. Add the
+podcast to the admin's list of podcast and the user's list of podcasts.Return
+a success message indicating that the new podcast has been added successful.
+Method removePodcast it's used to remove a podcast from the list . Check if the
+user with the specified username exists and if the user is in the list of hosts
+, if not return an error message . Iterate through existing podcasts and
+check if the user has a podcast with the given name.If the user doesn't have
+a podcast with the given name, return an error message.Check if the podcast is
+currently playing for any user. If yes, return an error message.Find and remove
+the podcast from the list of podcasts and also remove it from the admin's list
+of podcasts.Return a success message indicating that the podcast has been
+deleted successfully.Use Java Streams to sort the albums list. It first sorts
+based on total likes in descending order, and then, for albums with the same
+total likes, it further sorts based on the album name. The limit(5) ensures
+that only the top 5 albums are considered. The result is collected into a new
+list called sortedAlbums.Use another stream to extract the name of the sorted
+albums from sortedAlbums list . In the method addAnnouncement check if the
+username with the specified username exists and if the user is in the list of
+hosts , if not , return an error message . Iterate through existing
+announcements and check if the user has already added an announcement with the
+given name. If found, return an error message.Add the announcement to the list
+user's list of announcements. Return a success message indicating that the new
+announcement has been added successfully. In the method removeAnnouncement
+check if the user with the specified username exists and if the user is in the
+list of hosts, if not, return an error message . Iterate through announcements
+and check if the user has an announcement with the given name.If the user has
+no announcement with the given name, return an error message.Iterate through
+announcements, find the one with the specified name, and remove it. Return a
+success message indicating that the announcement has been deleted successfully.
+Method changePage representing information about the page change .
+Check if the next page is either "Home" or "LikedContent." If yes, update the
+current page for the user (Admin.currentPage). If not, set a message indicating
+that the user is trying to access a non-existent page. The deleteUser method
+checks the type of the user (artist, host, user) and performs different
+deletion operations accordingly.It handles scenarios where the user to be
+deleted is associated with an active player, search, or specific collections
+(albums, songs, podcasts, playlists).
+t removes the user and updates related data structures .
+The method returns a message indicating the success or failure of the deletion
+operation. The removeAlbum method removes an album based on the provided
+username and album name.It checks if the provided username is associated with
+a valid artist.It checks if the album with the given name exists.It ensures
+that the album is not currently being played by any user or associated with an
+active search.It removes the album and associated songs from the global list of
+albums and songs.The method returns a message indicating the success or failure
+of the album removal operation.
